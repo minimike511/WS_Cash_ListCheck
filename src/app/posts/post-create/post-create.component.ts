@@ -29,6 +29,8 @@ export class PostCreateComponent implements OnInit {
         this.isLoading = true;
         this.postsService.getPost(this.postId).subscribe(postData => {
           this.isLoading = false;
+          console.log('test');
+          console.log(postData);
           this.post = {
             id: postData._id,
             title: postData.title,
@@ -43,6 +45,9 @@ export class PostCreateComponent implements OnInit {
         this.postId = null;
       }
     });
+  }
+  isDate(){
+
   }
 
   onSavePost(form: NgForm) {

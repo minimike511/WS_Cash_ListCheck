@@ -2,9 +2,11 @@
 <mat-accordion multi="true" *ngIf="!isLoading && posts.length > 0">
   <mat-expansion-panel *ngFor="let post of posts">
     <mat-expansion-panel-header>
-      {{post.title}}
+      {{post.title}} {{post.date | date:'short'}}
     </mat-expansion-panel-header>
-    <p>{{post.content}}</p>
+    <p>Returned: {{post.returned}}</p>
+    <p>Comments:</p>
+    <p>{{post.comment}}</p>
     <mat-action-row>
       <a color="primary" mat-button [routerLink]="['/edit', post.id]">EDIT</a>
       <button color="warn" mat-button (click)="onDelete(post.id)">DELETE</button>
