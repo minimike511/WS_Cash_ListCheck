@@ -20,7 +20,7 @@ router.post("", (req, res, next) => {
 });
 
 router.get("", (req, res, next) => {
-  Post.find().then(documents => {
+  Post.find().sort({date:1}).then(documents => {
     res.status(200).json({
       message: 'Posts fetched successfully!',
       posts: documents
