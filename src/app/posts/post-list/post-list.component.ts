@@ -33,4 +33,8 @@ export class PostListComponent implements  OnInit, OnDestroy {
   ngOnDestroy() {
     this.postsSub.unsubscribe();
   }
+
+  isTradeReady(post: Post): boolean {
+    return  new Date(post.date).getTime() <= new Date().getTime() - 86400000 && post.returned;
+  }
 }

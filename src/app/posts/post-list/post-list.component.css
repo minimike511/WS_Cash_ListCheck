@@ -43,3 +43,11 @@ input[type=checkbox]:checked:after {
   top: 2px;
   left: 6px;
 }
+
+.not-returned {
+  color: #f44336 !important;
+}
+
+.trade-ready {
+  color:green;
+}
