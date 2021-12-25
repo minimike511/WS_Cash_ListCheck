@@ -6,7 +6,7 @@ const postsRoutes = require("./routes/post");
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/node-angular')
+mongoose.connect('mongodb://localhost:27017/ws-cash-list')
   .then(() => {
     console.log('Connected to Database!');
   })

@@ -1,28 +1,43 @@
 <mat-card>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
-  <form (submit)="onSavePost(postForm)"*ngIf="!isLoading"  #postForm="ngForm">
+  <form (submit)="onSavePost(postForm)" *ngIf="!isLoading" #postForm="ngForm">
     <mat-form-field>
       <input
         matInput
         type="text"
         name="title"
         [ngModel]="post?.title"
-        placeholder="Place Title"
+        placeholder="$NAME HERE"
         required
         #title="ngModel"
         minlength="3"/>
-      <mat-error *ngIf="title.invalid">Please enter a post title.</mat-error>
+      <mat-error *ngIf="title.invalid">Please enter the $NAME</mat-error>
     </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="datetime-local"
+        placeholder="date"
+        name="date"
+        [ngModel]="post?.date"
+        #date="ngModel"
+        required/>
+      <mat-error *ngIf="date.invalid">Please enter the date</mat-error>
+    </mat-form-field>
+    <mat-checkbox
+      color="primary"
+      [(ngModel)]="isChecked" >
+      <label>Returned?</label>
+    </mat-checkbox>
     <mat-form-field>
       <textarea
         matInput
         rows="6"
-        name="content"
-        [ngModel]="post?.content"
-        placeholder="Post Content"
-        #content="ngModel"
-        required></textarea>
-      <mat-error *ngIf="content.invalid">Please enter a post content.</mat-error>
+        name="comment"
+        [ngModel]="post?.comment"
+        placeholder="Comments"
+        #comment="ngModel"
+        ></textarea>
     </mat-form-field>
     <button
       mat-raised-button

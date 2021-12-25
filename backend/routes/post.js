@@ -7,7 +7,9 @@ const router = express.Router();
 router.post("", (req, res, next) => {
   const post = new Post({
     title: req.body.title,
-    content: req.body.content
+    comment: req.body.comment,
+    date: req.body.date,
+    returned: req.body.returned
   });
   post.save().then(result => {
     res.status(201).json({
@@ -40,7 +42,9 @@ router.put('/:id',(req,res,next)=> {
   const post = new Post({
     _id: req.body.id,
     title: req.body.title,
-    content: req.body.content
+    comment: req.body.comment,
+    returned: req.body.returned,
+    date: req.body.date
   });
   Post.updateOne({_id: req.params.id}, post).then(result => {
     console.log(result);
